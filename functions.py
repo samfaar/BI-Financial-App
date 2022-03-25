@@ -21,7 +21,8 @@ import re
 
 import datetime as dt
 from datetime import date, timedelta
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
+# from newsapi import NewsApiClient
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 from GoogleNews import GoogleNews
