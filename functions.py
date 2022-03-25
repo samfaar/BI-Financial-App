@@ -22,8 +22,11 @@ import re
 import datetime as dt
 from datetime import date, timedelta
 from newsapi.newsapi_client import NewsApiClient
-# from newsapi import NewsApiClient
 import nltk
+nltk.download('vader_lexicon')
+nltk.download('movie_reviews')
+nltk.download('punkt')
+nltk.download('stopwords')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 from GoogleNews import GoogleNews
 from newspaper import Article
