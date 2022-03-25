@@ -139,7 +139,7 @@ with news_headline_word_cld:
     
 with kwrd_extract:
     st.header('Company Events Mentioned in the News')
-    st.text('Keyword extraction can be done in a number of ways, one of the most popular being RegEx. We will use a Python library called FlashText that is much quickier and easier to work with.')
+    st.markdown("* Keyword extraction can be done in a number of ways, one of the most popular being RegEx. We will use a Python library called FlashText that is much quickier and easier to work with.")
     
     # get text for each news article
     df_news['news_text'] = df_news['url'].map(get_article_text)
