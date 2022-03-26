@@ -50,7 +50,7 @@ with import_data:
         
     search_date = date_col.date_input(
                                     'Select Date for Web News Extraction',
-                                    datetime.date.today(),
+                                    datetime.date.today() - datetime.timedelta(days=1),  # default date
                                     max_value = datetime.date.today(),
                                     min_value=datetime.date.today() - datetime.timedelta(days=4)).strftime('%Y-%m-%d')   # for now, we can get news up to 4 days ago from today
     
