@@ -83,7 +83,7 @@ with news_headline_SA:
                       height=520, 
                       legend=dict(orientation="h",
                                   yanchor="top",
-                                  y=1.22,
+                                  y=1.23,
                                   xanchor="center",
                                   x=0.48))
     st.plotly_chart(fig)
