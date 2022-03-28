@@ -194,17 +194,3 @@ with kwrd_extract:
     
     AgGrid(df_news[df_news['event_keywords'] != ''][['event_keywords', 'sentiment_type', 'source', 'news_headline', 'url']])
     
-    
-    """
-    
-    """
-
-    
-    """
-    **Future Work**
-
-    * More effecient web scraping that can extract only the text of the article and not all the texts that can be found within a website. The challenge is that we want this to work for any news website, and not just one particualr website such as yahoo finance.
-    * Once we can do (1), we may want to extract the name of companies that are discussed in the news around a particualr input company. For example, when we search for Amazon, it would be helpful to know what other companies are tied to Amazon's news.
-    """
-
-    
