@@ -117,7 +117,6 @@ def get_news(company_ticker, search_date):
         if df_google.shape[0] != 0:
             df_google.drop(['img', 'date'], axis=1, inplace=True)
             df_google.columns = ['news_headline', 'source', 'datetime', 'description', 'url']
-
     except:
         pass
     
