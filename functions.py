@@ -89,24 +89,37 @@ def get_news(company_ticker, search_date):
     df_finviz = news.copy()
     
     ## GoogleNews
-    user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
-    config = Config()
-    config.browser_user_agent = user_agent
-    config.request_timeout = 10
-    # GoogleNews sometime returns an empy dataframe, so we add a while to force GoogleNews to retun a result 
-    df_google = pd.DataFrame()
-    while df_google.shape[0] == 0:
+    # GoogleNews sometime returns an empy dataframe, so we add a try and except block for handling those exceptions
+    try:
+        user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
+        config = Config()
+        config.browser_user_agent = user_agent
+        config.request_timeout = 10
+        df_google = pd.DataFrame()
+
         # Extract News with Google News ---> gives only 10 results per request
         googlenews = GoogleNews(start=date.today())
         googlenews.search(company_ticker)
-        result = googlenews.result()
-        # store the results
-        df_google = pd.DataFrame(result)
+        
+        # store the results of the first result page
+        result1 = googlenews.result()
+        df_google1 = pd.DataFrame(result1)
+
+        # store the results of the 2nd result page
+        googlenews.clear()
+        googlenews.getpage(2)
+        result2 = googlenews.result()
+        df_google2 = pd.DataFrame(result2)
+
+        df_google = pd.concat([df_google1, df_google2])
+
         # do some cleaning of the DF
         if df_google.shape[0] != 0:
             df_google.drop(['img', 'date'], axis=1, inplace=True)
             df_google.columns = ['news_headline', 'source', 'datetime', 'description', 'url']
-    df_google
+
+    except:
+        pass
     
     ## Add all three DFs together
     df_news = pd.concat([df_newsapi, df_finviz, df_google], ignore_index=True)
