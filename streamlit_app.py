@@ -132,7 +132,7 @@ with news_headline_SA:
                       height=520,
                       legend=dict(orientation="h",
                                   yanchor="top",
-                                  y=1.12,
+                                  y=1.15,
                                   xanchor="center",
                                   x=0.5))
     fig.update_xaxes(tickangle=45)
@@ -186,7 +186,7 @@ with kwrd_extract:
                       font=dict(size=16),
                       legend=dict(orientation="h",
                                   yanchor="top",
-                                  y=1.12,
+                                  y=1.16,
                                   xanchor="center",
                                   x=0.5))
     fig.update_xaxes(tickangle=-45)
