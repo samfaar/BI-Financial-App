@@ -89,7 +89,7 @@ def get_news(company_ticker, search_date):
     df_finviz = news.copy()
     
     ## GoogleNews
-    # GoogleNews sometime returns an empy dataframe, so we add a try and except block for handling those exceptions
+    # GoogleNews sometime returns an empty dataframe, so we add a try and except block for handling those exceptions
     try:
         user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
         config = Config()
