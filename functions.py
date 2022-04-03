@@ -96,9 +96,12 @@ def get_news(company_ticker, search_date):
         config.browser_user_agent = user_agent
         config.request_timeout = 10
         df_google = pd.DataFrame()
+        
+        # change the format of our search_date string from YYYY-MM-DD to MM/DD/YYYY so that is works with GoogleNews
+        start_date = re.sub(r'(\d{4})-(\d{1,2})-(\d{1,2})', '\\2/\\3/\\1', search_date)
 
         # Extract News with Google News ---> gives only 10 results per request
-        googlenews = GoogleNews(start=date.today())
+        googlenews = GoogleNews(start=start_date)
         googlenews.search(company_ticker)
         
         # store the results of the first result page
