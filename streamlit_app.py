@@ -167,7 +167,7 @@ with kwrd_extract:
     df_news['event_keywords'] = df_news['news_text'].map(keyword_extractor)
     
     # plot
-    st.subheader('Number of News Articles Containg Company-Event Keywords')
+    st.subheader('Number of News Articles containing Company-Event Keywords')
     
     fig = px.histogram(
         df_news[df_news['event_keywords'] != ''],
